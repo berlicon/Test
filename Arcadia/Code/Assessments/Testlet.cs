@@ -9,6 +9,7 @@ namespace Assessments
         private const int COUNT_ITEMS = 10;
         private const int COUNT_PRETEST_ITEMS = 4;
         private const int COUNT_OPERATIONAL_ITEMS = 6;
+        private const int COUNT_PRETEST_ITEMS_MOVED_TO_TOP = 2;
 
         public string TestletId;
         private List<Item> Items;
@@ -39,24 +40,18 @@ namespace Assessments
         {
             var rnd = new Random();
             var result = new Item[Items.Count];
+            
+            var newItems = Items.OrderBy(x => rnd.Next()).ToList();
 
-            var firstPretestItem =
-                Items.OrderBy(x => rnd.Next())
+            var pretestItemsMovedToTop = newItems
                 .Where(x => x.ItemType == ItemTypeEnum.Pretest)
-                .First();
+                .Take(COUNT_PRETEST_ITEMS_MOVED_TO_TOP).ToList();
 
-            var secondPretestItem =
-                Items.OrderBy(x => rnd.Next())
-                .Where(x => x.ItemType == ItemTypeEnum.Pretest && x.ItemId != firstPretestItem.ItemId)
-                .First();
-
-            result[0] = firstPretestItem;
-            result[1] = secondPretestItem;
-
-            Items.OrderBy(x => rnd.Next())
-                .Where(x => x.ItemId != firstPretestItem.ItemId && x.ItemId != secondPretestItem.ItemId)
+            pretestItemsMovedToTop.CopyTo(0, result, 0, pretestItemsMovedToTop.Count);
+            newItems
+                .Where(x => !pretestItemsMovedToTop.Contains(x))
                 .ToList()
-                .CopyTo(0, result, 2, Items.Count - 2);
+                .CopyTo(0, result, COUNT_PRETEST_ITEMS_MOVED_TO_TOP, COUNT_ITEMS - COUNT_PRETEST_ITEMS_MOVED_TO_TOP);
 
             return result.ToList();
         }
@@ -74,11 +69,3 @@ namespace Assessments
         Operational = 1
     }
 }
-
-/*
-Метод рандомайз тоже готов работать с таким "неопределенным" списком aйтемов.
-Эта валидация вынесена в тест а не сидит в классе.
-
-сам алгоритм перемешивания кончено вопрос холиварный. непонятно зачем перемешивать 2 раза только чтобы получить 2 претест итема, и если завтра нужно будет взять 200 претест итемов то всё придётся полностью переписывать.
-т.е. я бы предложил кандидату подумать над возможностью что завтра нас попросят изменить количество претест итемов в начале массива и описать алгоритм так чтобы мы могли сделать это изменение с минимальными усилиями.. (но опять же, не знаю, будет ли этот момент важен для заказчика)
- */
