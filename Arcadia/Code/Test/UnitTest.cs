@@ -1,5 +1,6 @@
 using Assessments;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,6 +28,31 @@ namespace Test
 
             testlet = new Testlet("1", items);
             itemsRandomized = testlet.Randomize();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException), "[Items] should contain strict 10 rows")]
+        public void TestLetContainsStrict10Items()
+        {
+            new Testlet("1", new List<Item>());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "[Items] should be type of [Item]")]
+        public void TestLetContainsItemsWithCorrectType()
+        {
+            var newItems = new List<Item>(items.Take(items.Count - 1));
+            newItems.Add(null);
+            new Testlet("1", newItems);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "[Items] should contain 4 [Pretest] and 6 [Operational] rows")]
+        public void TestLetContains4Pretestand6OperationalItems()
+        {
+            var newItems = new List<Item>(items);
+            newItems.ForEach(x => x.ItemType = ItemTypeEnum.Pretest);
+            new Testlet("1", newItems);
         }
 
         [TestMethod]

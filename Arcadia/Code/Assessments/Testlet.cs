@@ -6,13 +6,35 @@ namespace Assessments
 {
     public class Testlet
     {
+        private const int COUNT_ITEMS = 10;
+        private const int COUNT_PRETEST_ITEMS = 4;
+        private const int COUNT_OPERATIONAL_ITEMS = 6;
+
         public string TestletId;
         private List<Item> Items;
+
         public Testlet(string testletId, List<Item> items)
         {
+            if (items.Count != COUNT_ITEMS)
+            {
+                throw new ArgumentOutOfRangeException("items", $"[Items] should contain strict {COUNT_ITEMS} rows");
+            }
+
+            if (!items.All(x => x is Item))
+            {
+                throw new ArgumentException("items", "[Items] should be type of [Item]");
+            }
+
+            if (items.Count(x => x.ItemType == ItemTypeEnum.Pretest) != COUNT_PRETEST_ITEMS ||
+                items.Count(x => x.ItemType == ItemTypeEnum.Operational) != COUNT_OPERATIONAL_ITEMS)
+            {
+                throw new ArgumentException("items", $"[Items] should contain {COUNT_PRETEST_ITEMS} [Pretest] and {COUNT_OPERATIONAL_ITEMS} [Operational] rows");
+            }
+
             TestletId = testletId;
             Items = items;
         }
+
         public List<Item> Randomize()
         {
             var rnd = new Random();
@@ -54,9 +76,6 @@ namespace Assessments
 }
 
 /*
-UnitTest находится внутри проекта Test, немного непонятно. 
-Выделить юнит тесты в отдельный проект.
-В конструкторе класса тестлет нет никаких валидаций айтемов, сколько их какого типа и тд.
 Метод рандомайз тоже готов работать с таким "неопределенным" списком aйтемов.
 Эта валидация вынесена в тест а не сидит в классе.
 
