@@ -1,0 +1,181 @@
+Задача. Есть таблица Employee с полями employee_id, manager_id, salary. manager_id – менеджер работника. Менеджеры тоже являются работниками и хранятся в таблице Employee. Напишите запрос, который выведет работников зарабатывающих больше своих менеджеров.
+
+
+
+SELECT * FROM Employee e
+WHERE e.salary > (SELECT TOP 1 salary FROM Employee e2 WHERE e2.employee_id=e.manager_id)
+
+
+SELECT * FROM Employee e1
+LEFT JOIN Employee e2
+ON e1.manager_id= e2.employee_id
+WHERE e1.salary > e2.salary
+
+
+
+WHERE e.salary > (SELECT TOP 1 salary FROM Employee e2 WHERE e2.employee_id=e.manager_id)
+
+<div id="zoomControl">
+    <div class="container">
+        <div class="child">Some content</div>
+        <div class="child">Test</div>
+        <div class="child">Foo bar</div>
+        ...
+    </div>
+    <button type="button" onclick="toggleZoom($event)">Toggle Zoom</button>
+</div>
+
+<script>
+    function toggleZoom(e) {
+        var container = document.querySelector(".container");
+        var children = e.target.parent.querySelectorAll(".child");
+        //var children = document.querySelectorAll(".container > .child");
+        for (var i = 0; i < children.length; i++) {
+            var child = children[i];
+            if (!container.zoom) {
+                child.style.width = child.offsetWidth * 2 + "px";
+                child.style.height = child.offsetHeight * 2 + "px";
+            }
+            else {
+                child.style.width = "";
+                child.style.height = "";
+            }
+        }
+        container.zoom = !container.zoom;
+    }    
+</script>
+
+// undo
+
+export class TodoControlBase {
+    private model: TodoModel;
+
+    
+    addItem(text: string) {
+        /*var newItem = new TodoItem();
+        newItem.key = this.model.getNextKey();
+        newItem.text = text;        
+        
+        this.model.items.Add(newItem);*/
+        this.commands.Add(new AddCommand(text));
+     }
+    
+    updateText(key: number, text: string) {
+        var item = this.model.items(i => i.key == key);
+        if (item != null) {
+            item.text = text;
+        }                
+        
+        this.commandHistory.addCommand(new UpdCommand(text));
+    }
+    
+    undo() {
+        this.CommandHistory.undo();
+        
+    }
+    
+    redo() {
+        
+    }
+}
+
+class TodoModel {
+    items: TodoItem[] = [];
+    getNextKey(): number { 
+        return this.counter++; 
+    }
+    private counter: number = 0;
+}
+
+class TodoItem {
+    key: number;
+    text: string;
+}
+
+
+class CommandHistory {
+    commands: Command[] = [];
+    commandsForRedo: Command[] = [];
+    
+    addCommand(Command: command) {
+        thsi.commands.Add(command);
+        command.execute();
+    }
+    
+    undo() {
+        var command = this.commands[this.commands.length-1];
+         command.undo();
+         
+         this.commandsForRedo.Add(command);
+    }
+    
+    redo() {
+        var command = this.commandsForRedo[this.commands.length-1];
+         command.execute();
+    }
+}
+
+
+class Command {
+    key: number;
+    text: string;
+        
+    undo() {
+        
+    }
+    
+    redo() {
+        
+    }
+}
+
+
+class AddCommand: Command {
+    public AddCommand(key: number; text: string) {
+        this.key= key;
+        this.text= text;    
+    }   
+    
+    execute() {
+        var newItem = new TodoItem();
+        newItem.key = this.model.getNextKey();
+        newItem.text = text;        
+        
+        this.model.items.Add(newItem);
+    }
+    
+    
+    undo() {
+        this.model.items = this.model.items(i => i.key != key);
+    }
+}
+
+
+class UpdateTextCommand: Command {
+    public UpdateTextCommand(key: number; text: string) {
+        this.key= key;
+        this.text= text;
+    }   
+    
+    
+    undo() {
+        this.model.items = this.model.items(i => i.key != key);
+        
+        this.redoCommands.Add(...);
+    }
+    
+    redo() {
+        this.redoCommands[this.redoCommands.Length - 1].undo();
+    }
+}
+
+
+-----
+
+
+
+
+
+
+
+
