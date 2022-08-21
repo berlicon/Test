@@ -13,3 +13,4 @@ Maven Securities - JS, C#, SQL - the Jungle book; trading profit; department sum
 SOTI - JS - last man standing; infix to prefix conversion
 Spotware - C# - calculate "2+3"=? and others operations with unit tests, improvements
 Zalando - JS - get smallest positive integer not in array; implement Web API find best candidate for job
+Alvexo - JS, C# - page with clock; PersonCollection class
