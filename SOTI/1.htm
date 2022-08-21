@@ -1,0 +1,142 @@
+<div class="text-only _questionArea codelysis-questionArea" question-text=""><div class="ng-scope">
+ <strong>Last Man Standing</strong>
+</div> 
+<div class="ng-scope">
+ &nbsp;
+</div> 
+<div class="ng-scope">
+ Consider this game "last man Standing":
+</div> 
+<div class="ng-scope">
+ <strong>N</strong> people are standing in form of a circle. Every 
+ <strong>m<sup>th</sup></strong> person gets eliminated in consecutive turns.
+</div> 
+<div class="ng-scope">
+ Write a function to return the value of the last man standing, given the count 
+ <strong>N</strong> and the elimination&nbsp;factor 
+ <strong>m</strong>.&nbsp;
+</div> 
+<div class="ng-scope">
+ &nbsp;
+</div> 
+<div class="ng-scope"> 
+ <div>
+  <strong>Input Specification:</strong>
+ </div> 
+ <table border="0" cellpadding="10" cellspacing="1" style="background-color: rgb(246, 246, 246); width: 490px;"> 
+  <tbody> 
+   <tr> 
+    <td> 
+     <div>
+      <strong>N:</strong>&nbsp;integer value 
+      <strong>N</strong> where&nbsp;
+      <strong>1&lt;N&lt;10<sup>9</sup></strong>
+     </div> 
+     <div>
+      <strong>m:&nbsp;</strong>integer value 
+      <strong>m</strong> i.e 
+      <strong>elimination factor</strong> where 
+      <strong><span style="background-color: rgb(246, 246, 246);">1&lt;m&lt;10</span></strong>
+      <span style="position: relative; font-size: 10.5px; line-height: 0; vertical-align: baseline; top: -0.5em; background-color: rgb(246, 246, 246);"><strong>9</strong>&nbsp;</span>and 
+      <strong>m&lt;N</strong>
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <div>
+  &nbsp;
+ </div> 
+ <div>
+  <strong>Output Specification:</strong>
+ </div> 
+ <table border="0" cellpadding="10" cellspacing="1" style="background-color: rgb(246, 246, 246); width: 490px;"> 
+  <tbody> 
+   <tr> 
+    <td>Return the position of the last man standing.</td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <div>
+  &nbsp;
+ </div> 
+ <div> 
+  <div>
+   <strong>Example 1:</strong>
+  </div> 
+  <table border="0" cellpadding="10" cellspacing="1" style="background-color: rgb(246, 246, 246); width: 490px;"> 
+   <tbody> 
+    <tr> 
+     <td> 
+      <div>
+       <strong>N:</strong>&nbsp;5
+      </div> 
+      <div>
+       <strong>m: </strong>2
+      </div> </td> 
+    </tr> 
+   </tbody> 
+  </table> &nbsp; 
+  <table border="0" cellpadding="10" cellspacing="1" style="background-color: rgb(246, 246, 246); width: 490px;"> 
+   <tbody> 
+    <tr> 
+     <td><strong>Output:</strong>&nbsp;3</td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <div>
+   &nbsp;
+  </div> 
+  <div>
+   <strong>Explanation:</strong>
+  </div> 
+  <div>
+   First, 2 gets eliminated, next 4 then 1, then 5 and the last man remaining is 3.
+  </div> 
+  <div>
+   <img alt="" class="_image" src="https://media.mettl.com/v2/file/35d701d9-be82-4c79-8eb2-78823abae2bd.png?key=bPNnbXfN9AIIuFKSebPbFlQ1pk4zM1dEZDv78bWZM-F-egCOKBz4cKJzgA2T42mx711Gbwb1P3wOal-RVNFMUA&amp;mediaContext=wu1H6e72SzgnjY3IfIiHVg&amp;signature=bPNnbXfN9AIIuFKSebPbFlQ1pk4zM1dEZDv78bWZM-F-egCOKBz4cKJzgA2T42mx5QnJVgTHkSUG9h1AH17GfbWqGKTSiaxh2_tT8gs8WoI" ng-src="https://media.mettl.com/v2/file/35d701d9-be82-4c79-8eb2-78823abae2bd.png?key=bPNnbXfN9AIIuFKSebPbFlQ1pk4zM1dEZDv78bWZM-F-egCOKBz4cKJzgA2T42mx711Gbwb1P3wOal-RVNFMUA&amp;mediaContext=wu1H6e72SzgnjY3IfIiHVg&amp;signature=bPNnbXfN9AIIuFKSebPbFlQ1pk4zM1dEZDv78bWZM-F-egCOKBz4cKJzgA2T42mx5QnJVgTHkSUG9h1AH17GfbWqGKTSiaxh2_tT8gs8WoI">
+  </div> 
+  <div>
+   &nbsp;
+  </div> 
+  <div>
+   <strong>Example 2:</strong>
+  </div> 
+  <table border="0" cellpadding="10" cellspacing="1" style="background-color: rgb(246, 246, 246); width: 490px;"> 
+   <tbody> 
+    <tr> 
+     <td> 
+      <div>
+       <strong>N:</strong>&nbsp;6
+      </div> 
+      <div>
+       <strong>m:&nbsp;</strong>3
+      </div> </td> 
+    </tr> 
+   </tbody> 
+  </table> &nbsp; 
+  <table border="0" cellpadding="10" cellspacing="1" style="background-color: rgb(246, 246, 246); width: 490px;"> 
+   <tbody> 
+    <tr> 
+     <td><strong>Output:</strong>&nbsp;1</td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <div> 
+   <div>
+    &nbsp;
+   </div> 
+   <div>
+    <strong>Explanation:</strong>
+   </div> 
+   <div>
+    First, 3 gets eliminated, next 6 then 4, then 2, then 5 and the last man remaining is 1.​
+   </div> 
+   <div>
+    <img alt="" class="_image" src="https://media.mettl.com/v2/file/a04f3962-1567-4b51-bb3c-e470010ca75b.png?key=HhTxPCC-7x5Uq_BFWNmBIfgR4eFhjC6jQyTAwB7_fGv8QSaTV6ZEodoYFvPL9k9YXADLIiJ-Uh-uqfmGDMclJg&amp;mediaContext=wu1H6e72SzgnjY3IfIiHVg&amp;signature=HhTxPCC-7x5Uq_BFWNmBIfgR4eFhjC6jQyTAwB7_fGv8QSaTV6ZEodoYFvPL9k9Ytuc9QW6Q1axlr9Of-QsBHYB7o4T0z2IRoEXR7yr5yAo" ng-src="https://media.mettl.com/v2/file/a04f3962-1567-4b51-bb3c-e470010ca75b.png?key=HhTxPCC-7x5Uq_BFWNmBIfgR4eFhjC6jQyTAwB7_fGv8QSaTV6ZEodoYFvPL9k9YXADLIiJ-Uh-uqfmGDMclJg&amp;mediaContext=wu1H6e72SzgnjY3IfIiHVg&amp;signature=HhTxPCC-7x5Uq_BFWNmBIfgR4eFhjC6jQyTAwB7_fGv8QSaTV6ZEodoYFvPL9k9Ytuc9QW6Q1axlr9Of-QsBHYB7o4T0z2IRoEXR7yr5yAo">
+   </div> 
+   <div>
+    &nbsp;
+   </div> 
+  </div> 
+ </div> 
+</div></div>

@@ -10,3 +10,4 @@ Jenea - Javascript - Complete the 'cosine_similarity' function
 KingMakers - C#, SQL, Arch Design, Web API, palindrome, optimization - 6 tasks
 Luxoft - C#, SQL, Angular - FizzBuzz task with estimation, improvements
 Maven Securities - JS, C#, SQL - the Jungle book; trading profit; department summary
+SOTI - JS - last man standing; infix to prefix conversion
