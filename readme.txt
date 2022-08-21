@@ -7,3 +7,4 @@ Delivery Hero - Javascript - Morse Code
 Forto - C# - 3 tasks - fix bug; move cranes; calculate period of string
 HRPrime - C# - 5 questions
 Jenea - Javascript - Complete the 'cosine_similarity' function
+KingMakers - C#, SQL, Arch Design, Web API, palindrome, optimization - 6 tasks
