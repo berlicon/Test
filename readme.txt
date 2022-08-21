@@ -1,1 +1,2 @@
 Arcadia - C#, Unit-tests, business-logic, class TestLet
+Agoda- Typescript - 4 tasks on HackerRank - modify string to make it palindrome; how many words can be typed with broken keyboard; calculate digit anagrams; merge two strings
