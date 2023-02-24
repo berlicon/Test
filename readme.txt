@@ -4,6 +4,7 @@ Amazon - Javascript - 2 tasks - optimizing box weights; items in containers
 BrightData - C# - 2 tasks - Implement function verifies whether parentheses within text are correctly nested; Simplify implementation
 Cube dev - Javascript - 15 tasks - HackerRank
 Delivery Hero - Javascript - Morse Code
+Dobyte - calculate lucky tickets (13 numbers, 13 calculate system)
 Forto - C# - 3 tasks - fix bug; move cranes; calculate period of string
 HRPrime - C# - 5 questions
 Jenea - Javascript - Complete the 'cosine_similarity' function
