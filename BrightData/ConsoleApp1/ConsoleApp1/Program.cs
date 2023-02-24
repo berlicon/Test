@@ -11,8 +11,6 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-
-
             //int a = 5;
             //object o = a;
             //var x = (long)o;
@@ -96,14 +94,12 @@ namespace ConsoleApp1
 
         }
 
-
-        public static long calculate(string s)
+        public static long calculate(string s, int x)
         {
             var result = 0;
            
             return result;
         }
-
 
         public static int getMaxSubstrings(string s, int k)
         {
